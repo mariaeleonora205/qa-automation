@@ -14,19 +14,20 @@ test('Validate checkout', async ({page})=>{
     await loginPage.goto();
 
     // Performing Login
-    await loginPage.login("standard_user", "secret_sauce")
+    await loginPage.login("standard_user", "secret_sauce");
 
     // Adding Product One to the cart
-    await inventoryPage.getProduct(productTitleOne)
-    await inventoryPage.addProductToCart(productTitleOne)
+    await inventoryPage.getProduct(productTitleOne);
+    await inventoryPage.addProductToCart(productTitleOne);
 
     // Adding Product Two to the cart
-    await inventoryPage.getProduct(productTitleTwo)
-    await inventoryPage.addProductToCart(productTitleTwo)
+    await inventoryPage.getProduct(productTitleTwo);
+    await inventoryPage.addProductToCart(productTitleTwo);
     
     // Validating both products were added in the cart
     await page.locator(inventoryLocators.shoppingCart).click();
     await expect(page.locator(inventoryLocators.cartItem)).toContainText([productTitleOne,productTitleTwo]);
+    await expect(page.locator(inventoryLocators.cartItem)).toHaveCount(2);
 
     // Checkout 
     await inventoryPage.clickCheckout();
