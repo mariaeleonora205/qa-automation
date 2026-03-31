@@ -87,7 +87,11 @@ Make sure you have the following installed:
 
 ## ⚙️ Installation
 
-Clone the repository and install dependencies
+Clone the repository 
+```bash
+git clone https://github.com/mariaeleonora205/qa-automation.git
+```
+and install dependencies
 
 ```bash
 npm install
